@@ -50,12 +50,4 @@ Buka file `.env`, isi API key kalian:
 
     php artisan serve
 
-Buka browser → **http://127.0.0.1:8000/cek-plat**
-
----
-
-## Selesai
-
-buka:
-
-    http://127.0.0.1:8000/idplat
+Buka browser → **http://127.0.0.1:8000/idplat**
