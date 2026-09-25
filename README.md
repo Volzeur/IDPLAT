@@ -51,3 +51,7 @@ Buka file `.env`, isi API key kalian:
     php artisan serve
 
 Buka browser → **http://127.0.0.1:8000/idplat**
+
+### 8. Edit UI
+
+Ubah index.blade.php aja (`C:\laragon\www\idplate\resources\views\vehicle-plate\index.blade.php`) yang lain jangan disentuh gaada hubungan sama ui/tampilan soalnya
