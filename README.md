@@ -6,9 +6,9 @@ Web app untuk mengecek asal wilayah plat nomor kendaraan Indonesia.
 
 ## Cara Menjalankan
 
-### 1. Download Project lalu copas folder "Vendor" dari template laravel kalian kesini
+### 1. Download Project
 
-Download ZIP → extract ke folder Laragon kalian (`C:\laragon\www\`).
+Klik tombol "Code" (yang warna ijo) → Download ZIP → extract ke folder Laragon kalian (`C:\laragon\www\`).
 
 lalu copas folder "Vendor" dari template laravel kalian kesini (`C:\laragon\www\IDPLAT`)
 
