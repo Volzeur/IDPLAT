@@ -104,65 +104,58 @@
             background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
             font-family: 'Inter', sans-serif;
             transition: background 0.3s ease;
+            overflow-x: hidden; 
         }
+
+        /* ===== PAGE LOAD ANIMATIONS ===== */
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .animate-header { animation: fadeSlideDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+        .animate-content-1 { animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s backwards; }
+        .animate-content-2 { animation: fadeSlideUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.25s backwards; }
+        .animate-footer { animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.4s backwards; }
 
         /* ===== CLAY COMPONENTS ===== */
         .clay {
             background: var(--clay-base);
             border-radius: 24px;
-            box-shadow: 
-                8px 8px 16px var(--shadow-dark),
-                -8px -8px 16px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px var(--shadow-dark);
+            box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark);
             transition: all 0.3s ease;
         }
-
         .clay:hover {
             transform: translateY(-2px);
-            box-shadow: 
-                10px 10px 20px var(--shadow-dark),
-                -10px -10px 20px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px var(--shadow-dark);
+            box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark);
         }
 
         .clay-strong {
             background: var(--clay-strong);
             border-radius: 28px;
-            box-shadow: 
-                12px 12px 24px var(--shadow-dark),
-                -12px -12px 24px var(--shadow-light),
-                inset 2px 2px 4px var(--shadow-light),
-                inset -2px -2px 4px var(--shadow-dark);
+            box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light), inset 2px 2px 4px var(--shadow-light), inset -2px -2px 4px var(--shadow-dark);
             transition: all 0.3s ease;
         }
-
         .clay-strong:hover {
             transform: translateY(-3px);
-            box-shadow: 
-                14px 14px 28px var(--shadow-dark),
-                -14px -14px 28px var(--shadow-light),
-                inset 2px 2px 4px var(--shadow-light),
-                inset -2px -2px 4px var(--shadow-dark);
+            box-shadow: 14px 14px 28px var(--shadow-dark), -14px -14px 28px var(--shadow-light), inset 2px 2px 4px var(--shadow-light), inset -2px -2px 4px var(--shadow-dark);
         }
 
         .clay-subtle {
             background: var(--clay-subtle);
             border-radius: 20px;
-            box-shadow: 
-                6px 6px 12px var(--shadow-dark),
-                -6px -6px 12px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px var(--shadow-dark);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark);
         }
 
         .clay-inset {
             background: var(--clay-inset);
             border-radius: 16px;
-            box-shadow: 
-                inset 4px 4px 8px var(--shadow-dark),
-                inset -4px -4px 8px var(--shadow-light);
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
         }
 
         /* ===== INPUTS & BUTTONS ===== */
@@ -170,234 +163,159 @@
             background: var(--input-bg);
             border: none;
             border-radius: 16px;
-            box-shadow: 
-                inset 4px 4px 8px var(--shadow-dark),
-                inset -4px -4px 8px var(--shadow-light);
+            box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
             color: var(--input-text);
             font-family: 'JetBrains Mono', monospace;
             transition: all 0.25s ease;
             padding: 14px 16px;
         }
-
         .clay-input:focus {
             outline: none;
-            box-shadow: 
-                inset 5px 5px 10px var(--shadow-dark),
-                inset -5px -5px 10px var(--shadow-light),
-                0 0 0 3px rgba(113, 113, 122, 0.2);
+            box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light), 0 0 0 3px rgba(113, 113, 122, 0.2);
         }
-
-        .clay-input::placeholder {
-            color: var(--input-placeholder);
-            font-family: 'Inter', sans-serif;
-        }
+        .clay-input::placeholder { color: var(--input-placeholder); font-family: 'Inter', sans-serif; }
 
         .btn-clay {
             background: linear-gradient(135deg, var(--btn-bg-start), var(--btn-bg-end));
             border: none;
             border-radius: 16px;
             color: var(--btn-text);
-            box-shadow: 
-                6px 6px 12px var(--shadow-dark),
-                -6px -6px 12px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease;
             font-weight: 700;
             cursor: pointer;
         }
-
-        .btn-clay:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-            box-shadow: 
-                8px 8px 16px var(--shadow-dark),
-                -8px -8px 16px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-clay:active {
-            transform: translateY(1px);
-            box-shadow: 
-                3px 3px 6px var(--shadow-dark),
-                -3px -3px 6px var(--shadow-light),
-                inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-                inset -3px -3px 6px var(--shadow-light);
-        }
+        .btn-clay:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        .btn-clay:active { transform: translateY(1px); box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light), inset 3px 3px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px var(--shadow-light); }
 
         .btn-clay-subtle {
             background: var(--clay-base);
             border: none;
             border-radius: 16px;
             color: var(--text-secondary);
-            box-shadow: 
-                4px 4px 8px var(--shadow-dark),
-                -4px -4px 8px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px var(--shadow-dark);
+            box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark);
             transition: all 0.2s ease;
             font-weight: 600;
             cursor: pointer;
         }
-
-        .btn-clay-subtle:hover {
-            filter: brightness(1.05);
-            transform: translateY(-1px);
-        }
-
-        .btn-clay-subtle:active {
-            transform: translateY(1px);
-            box-shadow: 
-                inset 3px 3px 6px var(--shadow-dark),
-                inset -3px -3px 6px var(--shadow-light);
-        }
+        .btn-clay-subtle:hover { filter: brightness(1.05); transform: translateY(-1px); }
+        .btn-clay-subtle:active { transform: translateY(1px); box-shadow: inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light); }
 
         /* ===== BADGES & PILLS ===== */
         .plate-display {
             background: var(--clay-strong);
             border-radius: 16px;
-            box-shadow: 
-                6px 6px 12px var(--shadow-dark),
-                -6px -6px 12px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px var(--shadow-dark);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark);
         }
 
         .badge-clay {
             background: linear-gradient(135deg, var(--btn-bg-start), var(--btn-bg-end));
             border-radius: 16px;
             color: var(--btn-text);
-            box-shadow: 
-                6px 6px 12px var(--shadow-dark),
-                -6px -6px 12px var(--shadow-light),
-                inset 1px 1px 2px var(--shadow-light),
-                inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .badge-clay-sm {
             background: linear-gradient(135deg, var(--steel-light), var(--steel-dark));
             border-radius: 12px;
             color: #ffffff;
-            box-shadow: 
-                3px 3px 6px var(--shadow-dark),
-                -3px -3px 6px var(--shadow-light),
-                inset 1px 1px 2px rgba(255, 255, 255, 0.2);
+            box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light), inset 1px 1px 2px rgba(255, 255, 255, 0.2);
         }
 
         .clay-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 9999px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            background: var(--pill-bg);
-            color: var(--pill-text);
-            box-shadow: 
-                3px 3px 6px var(--pill-shadow-dark),
-                -3px -3px 6px var(--pill-shadow-light),
-                inset 1px 1px 2px var(--pill-shadow-light),
-                inset -1px -1px 2px var(--pill-shadow-dark);
-            transition: all 0.2s ease;
+            display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: var(--pill-bg); color: var(--pill-text); box-shadow: 3px 3px 6px var(--pill-shadow-dark), -3px -3px 6px var(--pill-shadow-light), inset 1px 1px 2px var(--pill-shadow-light), inset -1px -1px 2px var(--pill-shadow-dark); transition: all 0.2s ease;
         }
-
         .clay-pill-dark {
-            background: linear-gradient(135deg, var(--steel-main), var(--navy-dark));
-            color: #f4f4f5;
-            box-shadow: 
-                3px 3px 6px rgba(0, 0, 0, 0.3),
-                -2px -2px 5px rgba(255, 255, 255, 0.05),
-                inset 1px 1px 2px rgba(255, 255, 255, 0.15);
+            background: linear-gradient(135deg, var(--steel-main), var(--navy-dark)); color: #f4f4f5; box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(255, 255, 255, 0.05), inset 1px 1px 2px rgba(255, 255, 255, 0.15);
         }
 
-        /* ===== TABLE & SCROLLBAR ===== */
-        .table-row-clay {
-            transition: all 0.2s ease;
-            border-bottom: 1px solid var(--shadow-dark);
-        }
-
-        .table-row-clay:hover {
-            background: rgba(0, 0, 0, 0.03);
-        }
-
-        .dark .table-row-clay:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: var(--text-muted) var(--clay-base);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
+        /* ===== NEW PLATE CARD DESIGN COZ TABLE NO BUENO ===== */
+        .plate-card {
             background: var(--clay-base);
-            border-radius: 4px;
+            border-radius: 22px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark), 
+                -6px -6px 12px var(--shadow-light),
+                inset 1px 1px 2px var(--shadow-light),
+                inset -1px -1px 2px var(--shadow-dark);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--text-muted), var(--text-secondary));
-            border-radius: 4px;
-            border: 2px solid var(--clay-base);
+        .plate-card:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 
+                8px 8px 18px var(--shadow-dark), 
+                -8px -8px 18px var(--shadow-light),
+                inset 1px 1px 2px var(--shadow-light),
+                inset -1px -1px 2px var(--shadow-dark);
         }
+
+        .plate-card:active {
+            transform: translateY(1px) scale(0.99);
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark), 
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .plate-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            border-radius: 22px 0 0 22px;
+            background: var(--steel-main);
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .plate-card:hover::before { opacity: 1; }
+
+        /* ===== SCROLLBAR ===== */
+        * { scrollbar-width: thin; scrollbar-color: var(--text-muted) var(--clay-base); }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--clay-base); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--text-muted), var(--text-secondary)); border-radius: 4px; border: 2px solid var(--clay-base); }
 
         /* ===== UTILITIES ===== */
-        .content-layer {
-            position: relative;
-            z-index: 1;
-        }
-
+        .content-layer { position: relative; z-index: 1; }
         .accent-steel { border-left: 4px solid var(--steel-main); }
         .accent-navy { border-left: 4px solid var(--navy-dark); }
         .accent-slate { border-left: 4px solid var(--text-faint); }
         .accent-haze { border-left: 4px solid var(--shadow-dark); }
-
         .text-primary { color: var(--text-primary); }
         .text-secondary { color: var(--text-secondary); }
         .text-muted { color: var(--text-muted); }
         .text-faint { color: var(--text-faint); }
 
         /* ===== GRAYSCALE THEME TOGGLE ANIMATION ===== */
-        .theme-toggle-icon {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            position: absolute;
-            color: var(--text-secondary);
-        }
+        .theme-toggle-icon { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease; position: absolute; color: var(--text-secondary); }
+        .dark .theme-icon-sun { opacity: 1; transform: rotate(360deg) scale(1); }
+        .dark .theme-icon-moon { opacity: 0; transform: rotate(90deg) scale(0); }
+        .theme-icon-sun { opacity: 0; transform: rotate(-90deg) scale(0); }
+        .theme-icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
-        .dark .theme-icon-sun {
-            opacity: 1;
-            transform: rotate(360deg) scale(1);
-        }
+        /* ===== EMPTY STATE ANIMATION ===== */
+        @keyframes carBounce { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-6px); } }
+        .empty-state-animate { animation: fadeInUp 0.4s ease-out both; }
+        .empty-step-1 { animation: fadeInUp 0.4s 0.1s ease-out both; }
+        .empty-step-2 { animation: fadeInUp 0.4s 0.2s ease-out both; }
+        .empty-step-3 { animation: fadeInUp 0.4s 0.3s ease-out both; }
 
-        .dark .theme-icon-moon {
-            opacity: 0;
-            transform: rotate(90deg) scale(0);
-        }
-
-        .theme-icon-sun {
-            opacity: 0;
-            transform: rotate(-90deg) scale(0);
-        }
-
-        .theme-icon-moon {
-            opacity: 1;
-            transform: rotate(0deg) scale(1);
-        }
+        .footer-clay { transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .footer-clay:hover { transform: translateY(-3px); box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light), inset 1px 1px 2px var(--shadow-light), inset -1px -1px 2px var(--shadow-dark); }
     </style>
 </head>
 
 <body class="font-sans antialiased">
     <div class="content-layer">
         {{-- TOP BAR --}}
-        <header class="sticky top-0 z-50 px-4 pt-4 pb-2">
+        <header class="sticky top-0 z-50 px-4 pt-4 pb-2 animate-header">
             <div class="max-w-[1440px] mx-auto">
                 <div class="clay-strong px-6 py-3 flex items-center justify-between">
                     <div class="flex items-center gap-3">
@@ -424,19 +342,19 @@
         {{-- MAIN --}}
         <main class="max-w-[1440px] mx-auto px-4 py-4">
             @if(session('success'))
-                <div class="clay p-3 mb-4 flex items-center gap-3 accent-steel">
+                <div class="clay p-3 mb-4 flex items-center gap-3 accent-steel animate-content-1">
                     <i class="fas fa-circle-check text-secondary text-sm"></i>
                     <p class="text-primary text-sm">{{ session('success') }}</p>
                 </div>
             @endif
             @if(session('refresh_error'))
-                <div class="clay p-3 mb-4 flex items-center gap-3 accent-slate">
+                <div class="clay p-3 mb-4 flex items-center gap-3 accent-slate animate-content-1">
                     <i class="fas fa-circle-exclamation text-muted text-sm"></i>
                     <p class="text-primary text-sm">{{ session('refresh_error') }}</p>
                 </div>
             @endif
             @if($loadError)
-                <div class="clay p-3 mb-4 flex items-center gap-3 accent-slate">
+                <div class="clay p-3 mb-4 flex items-center gap-3 accent-slate animate-content-1">
                     <i class="fas fa-triangle-exclamation text-muted text-sm"></i>
                     <p class="text-primary text-sm">Gagal memuat data: {{ $loadError }}</p>
                 </div>
@@ -444,7 +362,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
                 {{-- LEFT COLUMN --}}
-                <div class="lg:col-span-5 space-y-5">
+                <div class="lg:col-span-5 space-y-5 animate-content-1">
                     <div class="clay-strong p-6">
                         <div class="flex items-center gap-2.5 mb-5">
                             <div class="w-8 h-8 rounded-xl clay-subtle flex items-center justify-center">
@@ -549,69 +467,126 @@
                             @endif
                         </div>
                     @endif
+
+                    {{-- EMPTY STATE: shown when no result & no error --}}
+                    @if(!$result && !$error)
+                        <div class="clay p-8 flex flex-col items-center justify-center text-center space-y-5 empty-state-animate">
+                            <div class="relative">
+                                <div class="w-20 h-20 rounded-2xl clay-inset flex items-center justify-center">
+                                    <i class="fas fa-car-side text-faint text-2xl" style="animation: carBounce 2.5s ease-in-out infinite;"></i>
+                                </div>
+                                <div class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full clay-subtle"></div>
+                                <div class="absolute -bottom-1 -left-1 w-2.5 h-2.5 rounded-full clay-subtle"></div>
+                                <div class="absolute top-1 -left-2 w-1.5 h-1.5 rounded-full clay-subtle"></div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-secondary font-bold text-sm tracking-wide">Masukkan Nomor Plat Kendaraan</p>
+                                <p class="text-muted text-xs leading-relaxed max-w-[230px] mx-auto">Ketik kode atau nomor plat di kolom atas untuk mengetahui asal wilayah dan provinsinya.</p>
+                            </div>
+                            <div class="flex items-center gap-2 flex-wrap justify-center">
+                                <span class="clay-pill text-[10px] normal-case"><i class="fas fa-keyboard"></i> Kode saja (B)</span>
+                                <span class="text-faint text-[11px] font-medium">atau</span>
+                                <span class="clay-pill text-[10px] normal-case"><i class="fas fa-hashtag"></i> Plat lengkap (B 1174 KKB)</span>
+                            </div>
+                            <div class="w-full space-y-2.5 pt-4 border-t border-gray-500/15">
+                                <div class="flex items-center gap-3 text-left empty-step-1">
+                                    <div class="w-6 h-6 rounded-lg badge-clay-sm flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-white">1</span></div>
+                                    <p class="text-muted text-[11px] leading-snug">Ketik nomor plat, contoh: <span class="text-secondary font-semibold font-mono text-[11px]">B 1174 KKB</span></p>
+                                </div>
+                                <div class="flex items-center gap-3 text-left empty-step-2">
+                                    <div class="w-6 h-6 rounded-lg badge-clay-sm flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-white">2</span></div>
+                                    <p class="text-muted text-[11px] leading-snug">Tekan tombol <span class="text-secondary font-semibold">Cek Plat</span> untuk melihat hasilnya</p>
+                                </div>
+                                <div class="flex items-center gap-3 text-left empty-step-3">
+                                    <div class="w-6 h-6 rounded-lg badge-clay-sm flex items-center justify-center shrink-0"><span class="text-[10px] font-bold text-white">3</span></div>
+                                    <p class="text-muted text-[11px] leading-snug">Atau klik langsung kartu di <span class="text-secondary font-semibold">daftar kanan</span> untuk cari cepat</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
 
                 {{-- RIGHT COLUMN --}}
-                <div class="lg:col-span-7">
+                <div class="lg:col-span-7 animate-content-2">
                     @if(count($allCodes) > 0)
                         <div class="clay-strong p-6 flex flex-col h-full max-h-[810px]">
-                            <div class="flex flex-wrap items-center justify-between gap-3 mb-4 shrink-0">
+                            <div class="flex flex-wrap items-center justify-between gap-3 mb-5 shrink-0">
                                 <div class="flex items-center gap-2.5">
                                     <div class="w-8 h-8 rounded-xl clay-subtle flex items-center justify-center">
-                                        <i class="fas fa-list-ul text-secondary text-xs"></i>
+                                        <i class="fas fa-layer-group text-secondary text-xs"></i>
                                     </div>
                                     <div>
                                         <h3 class="text-primary font-bold text-sm tracking-wide uppercase">Daftar Kode Plat</h3>
                                         <p class="text-muted text-[10px] tracking-wider font-medium">
                                             {{ count($allCodes) }} KODE TERDAFTAR 
                                             <span class="text-faint mx-1">|</span> 
-                                            KLIK BARIS UNTUK MENCARI
+                                            KLIK KARTU UNTUK MENCARI
                                         </p>
                                     </div>
                                 </div>
                                 <form action="{{ route('vehicle-plate.refresh') }}" method="POST" onsubmit="return confirm('Perbarui data dari API? (2 kredit)');">
                                     @csrf
-                                    <button type="submit" class="btn-clay-subtle px-4 py-2 text-[10px] font-semibold tracking-wider uppercase flex items-center gap-1.5">
+                                    <button type="submit" class="btn-clay-subtle px-4 py-2 text-[11px] font-semibold tracking-wider flex items-center gap-1.5">
                                         <i class="fas fa-arrows-rotate text-xs"></i> Refresh
                                     </button>
                                 </form>
                             </div>
-                            <div class="clay-inset overflow-y-auto overflow-x-auto flex-1 w-full">
-                                <table class="w-full text-left border-collapse min-w-[600px]">
-                                    <thead class="sticky top-0 z-10">
-                                        <tr style="background: var(--clay-subtle);">
-                                            <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold w-[70px] whitespace-nowrap">Kode</th>
-                                            <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-map-pin mr-0.5"></i> Wilayah</th>
-                                            <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-earth-asia mr-0.5"></i> Provinsi</th>
-                                            <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-city mr-0.5"></i> Kota / Kab.</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($allCodes as $plate)
-                                            <tr class="table-row-clay cursor-pointer" onclick="document.querySelector('input[name=plate_number]').value='{{ $plate['plate_code'] }}'; document.querySelector('form[action=\'{{ route('vehicle-plate.check') }}\']').submit();">
-                                                <td class="py-2.5 px-4">
-                                                    <span class="font-bold text-[11px] badge-clay-sm inline-block px-3 py-1 rounded-lg">{{ $plate['plate_code'] }}</span>
-                                                </td>
-                                                <td class="py-2.5 px-4 text-primary font-semibold text-sm whitespace-nowrap">{{ $plate['region'] }}</td>
-                                                <td class="py-2.5 px-4 text-secondary text-sm whitespace-nowrap">{{ $plate['province'] }}</td>
-                                                <td class="py-2.5 px-4 text-muted text-xs whitespace-nowrap">{{ \Illuminate\Support\Str::limit($plate['cities'] ?? '', 45) }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                            
+                            {{-- REPLACED TABLE WITH DIV GRID --}}
+                            <div class="clay-inset p-4 overflow-y-auto overflow-x-hidden flex-1 w-full">
+                                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                                    @foreach($allCodes as $plate)
+                                        <div class="plate-card group" onclick="document.querySelector('input[name=plate_number]').value='{{ $plate['plate_code'] }}'; document.querySelector('form[action=\'{{ route('vehicle-plate.check') }}\']').submit();">
+                                            
+                                            {{-- Header: Code Badge --}}
+                                            <div class="flex justify-between items-start">
+                                                <span class="badge-clay-sm px-3 py-1.5 text-xs font-bold tracking-wider shadow-sm">
+                                                    {{ $plate['plate_code'] }}
+                                                </span>
+                                                <i class="fas fa-chevron-right text-faint text-[10px] group-hover:text-secondary transition-colors mt-1"></i>
+                                            </div>
+
+                                            {{-- Body: Region & Province --}}
+                                            <div class="space-y-1">
+                                                <h4 class="text-primary font-bold text-sm leading-tight">
+                                                    {{ $plate['region'] }}
+                                                </h4>
+                                                <div class="flex items-center gap-1.5 text-secondary text-[11px] font-medium">
+                                                    <i class="fas fa-map-pin text-[9px] text-faint"></i>
+                                                    {{ $plate['province'] }}
+                                                </div>
+                                            </div>
+
+                                            {{-- Footer: Cities (Truncated) --}}
+                                            <div class="pt-2 mt-1 border-t border-gray-500/10">
+                                                <p class="text-muted text-[10px] leading-snug line-clamp-2">
+                                                    {{ $plate['cities'] ?? 'Wilayah sekitar' }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                
+                                {{-- Empty State for Search (Optional if filtered via JS later) --}}
+                                @if(count($allCodes) === 0)
+                                    <div class="flex flex-col items-center justify-center h-40 text-center">
+                                        <i class="fas fa-search text-faint text-2xl mb-2"></i>
+                                        <p class="text-muted text-xs">Data tidak ditemukan</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endif
                 </div>
             </div>
 
-            <footer class="mt-5 clay-subtle px-5 py-3">
+            <footer class="mt-5 clay-subtle px-5 py-3 footer-clay animate-footer cursor-default">
                 <div class="flex flex-wrap items-center justify-between gap-3 text-[10px]">
                     <div class="flex items-center gap-3 text-muted font-medium">
-                        <span class="flex items-center gap-1"><i class="fas fa-database"></i> API INDONESIA</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-database footer-icon"></i> API INDONESIA</span>
                     </div>
                     <div class="flex items-center gap-1.5 text-muted font-medium">
-                        <span class="flex items-center gap-1"><i class="fas fa-map"></i> Data Samsat Publik</span>
+                        <span class="flex items-center gap-1"><i class="fas fa-map footer-icon"></i> Data Samsat Publik</span>
                     </div>
                 </div>
             </footer>
@@ -624,15 +599,12 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const THEME_KEY = 'idplat-theme';
 
-        // Theme determination
         function getInitialTheme() {
             const stored = localStorage.getItem(THEME_KEY);
             if (stored === 'dark' || stored === 'light') return stored;
-            // Fallback browser
             return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
 
-        // Apply theme
         function applyTheme(theme) {
             if (theme === 'dark') {
                 htmlElement.classList.add('dark');
@@ -643,7 +615,6 @@
 
         applyTheme(getInitialTheme());
 
-        // Manual toggle
         themeToggleBtn.addEventListener('click', () => {
             const isDark = htmlElement.classList.contains('dark');
             const newTheme = isDark ? 'light' : 'dark';
@@ -651,7 +622,6 @@
             localStorage.setItem(THEME_KEY, newTheme);
         });
 
-        // Listen for system/browser theme changes ONLY if user hasn't manually overridden
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
             if (!localStorage.getItem(THEME_KEY)) {
                 applyTheme(e.matches ? 'dark' : 'light');
