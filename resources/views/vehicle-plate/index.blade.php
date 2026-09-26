@@ -11,7 +11,7 @@
 
     <script>
         tailwind.config = {
-            darkMode: 'media',
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -24,80 +24,78 @@
     </script>
 
     <style>
-        /* ===== COLOR VARIABLES ===== */
+        /* ===== COLOR VARIABLES (GRAYSCALE PALETTE) ===== */
         :root {
-            --bg-gradient-start: #f3f4f6;
-            --bg-gradient-mid: #e5e7eb;
-            --bg-gradient-end: #d1d5db;
+            --bg-gradient-start: #f4f4f5;
+            --bg-gradient-mid: #e4e4e7;
+            --bg-gradient-end: #d4d4d8;
 
-            --clay-base: #f3f4f6;
-            --clay-strong: #f9fafb;
-            --clay-subtle: #e5e7eb;
-            --clay-inset: #e5e7eb;
+            --clay-base: #f4f4f5;
+            --clay-strong: #ffffff;
+            --clay-subtle: #e4e4e7;
+            --clay-inset: #e4e4e7;
 
-            --shadow-light: rgba(255, 255, 255, 0.8);
-            --shadow-dark: rgba(156, 163, 175, 0.4);
+            --shadow-light: rgba(255, 255, 255, 0.9);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
             
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --text-faint: #9ca3af;
+            --text-primary: #18181b;
+            --text-secondary: #3f3f46;
+            --text-muted: #71717a;
+            --text-faint: #a1a1aa;
 
-            --steel-light: #6A8298;
-            --steel-main: #4A6178;
-            --steel-dark: #344858;
-            --navy-dark: #2C3E50;
+            --steel-light: #71717a; 
+            --steel-main: #52525b;
+            --steel-dark: #3f3f46;
+            --navy-dark: #27272a;
             
             --btn-bg-start: var(--steel-light);
             --btn-bg-end: var(--steel-dark);
             --btn-text: #ffffff;
             
-            --input-bg: #e5e7eb;
-            --input-text: #1f2937;
-            --input-placeholder: rgba(75, 85, 99, 0.5);
+            --input-bg: #e4e4e7;
+            --input-text: #18181b;
+            --input-placeholder: rgba(63, 63, 70, 0.5);
 
-            --pill-bg: #f9fafb;
-            --pill-text: #4b5563;
-            --pill-shadow-light: rgba(255, 255, 255, 0.8);
-            --pill-shadow-dark: rgba(156, 163, 175, 0.3);
+            --pill-bg: #ffffff;
+            --pill-text: #3f3f46;
+            --pill-shadow-light: rgba(255, 255, 255, 0.9);
+            --pill-shadow-dark: rgba(0, 0, 0, 0.1);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-gradient-start: #18181b;
-                --bg-gradient-mid: #1f1f22;
-                --bg-gradient-end: #111113;
+        .dark {
+            --bg-gradient-start: #18181b;
+            --bg-gradient-mid: #1c1c1e;
+            --bg-gradient-end: #09090b;
 
-                --clay-base: #27272a;
-                --clay-strong: #2e2e32;
-                --clay-subtle: #27272a;
-                --clay-inset: #18181b;
+            --clay-base: #27272a;
+            --clay-strong: #323236;
+            --clay-subtle: #27272a;
+            --clay-inset: #18181b;
 
-                --shadow-light: rgba(255, 255, 255, 0.04);
-                --shadow-dark: rgba(0, 0, 0, 0.5);
-                
-                --text-primary: #f4f4f5;
-                --text-secondary: #d4d4d8;
-                --text-muted: #a1a1aa;
-                --text-faint: #71717a;
+            --shadow-light: rgba(255, 255, 255, 0.05);
+            --shadow-dark: rgba(0, 0, 0, 0.6);
+            
+            --text-primary: #f4f4f5;
+            --text-secondary: #d4d4d8;
+            --text-muted: #a1a1aa;
+            --text-faint: #71717a;
 
-                --steel-light: #7A92A8; 
-                --steel-main: #5A7188;
-                --steel-dark: #3D5468;
-                
-                --btn-bg-start: var(--steel-light);
-                --btn-bg-end: var(--steel-dark);
-                --btn-text: #f4f4f5;
-                
-                --input-bg: #18181b;
-                --input-text: #f4f4f5;
-                --input-placeholder: rgba(161, 161, 170, 0.5);
+            --steel-light: #a1a1aa; 
+            --steel-main: #71717a;
+            --steel-dark: #52525b;
+            
+            --btn-bg-start: var(--steel-main);
+            --btn-bg-end: var(--steel-dark);
+            --btn-text: #f4f4f5;
+            
+            --input-bg: #18181b;
+            --input-text: #f4f4f5;
+            --input-placeholder: rgba(161, 161, 170, 0.5);
 
-                --pill-bg: #2e2e32;
-                --pill-text: #a1a1aa;
-                --pill-shadow-light: rgba(255, 255, 255, 0.05);
-                --pill-shadow-dark: rgba(0, 0, 0, 0.4);
-            }
+            --pill-bg: #3f3f46;
+            --pill-text: #d4d4d8;
+            --pill-shadow-light: rgba(255, 255, 255, 0.05);
+            --pill-shadow-dark: rgba(0, 0, 0, 0.5);
         }
 
         body {
@@ -108,6 +106,7 @@
             transition: background 0.3s ease;
         }
 
+        /* ===== CLAY COMPONENTS ===== */
         .clay {
             background: var(--clay-base);
             border-radius: 24px;
@@ -166,6 +165,7 @@
                 inset -4px -4px 8px var(--shadow-light);
         }
 
+        /* ===== INPUTS & BUTTONS ===== */
         .clay-input {
             background: var(--input-bg);
             border: none;
@@ -178,15 +178,15 @@
             transition: all 0.25s ease;
             padding: 14px 16px;
         }
-        
+
         .clay-input:focus {
             outline: none;
             box-shadow: 
                 inset 5px 5px 10px var(--shadow-dark),
                 inset -5px -5px 10px var(--shadow-light),
-                0 0 0 3px rgba(74, 97, 120, 0.2);
+                0 0 0 3px rgba(113, 113, 122, 0.2);
         }
-        
+
         .clay-input::placeholder {
             color: var(--input-placeholder);
             font-family: 'Inter', sans-serif;
@@ -204,8 +204,9 @@
                 inset -1px -1px 2px rgba(0, 0, 0, 0.2);
             transition: all 0.2s ease;
             font-weight: 700;
+            cursor: pointer;
         }
-        
+
         .btn-clay:hover {
             filter: brightness(1.1);
             transform: translateY(-2px);
@@ -215,7 +216,7 @@
                 inset 1px 1px 2px var(--shadow-light),
                 inset -1px -1px 2px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-clay:active {
             transform: translateY(1px);
             box-shadow: 
@@ -237,13 +238,14 @@
                 inset -1px -1px 2px var(--shadow-dark);
             transition: all 0.2s ease;
             font-weight: 600;
+            cursor: pointer;
         }
-        
+
         .btn-clay-subtle:hover {
             filter: brightness(1.05);
             transform: translateY(-1px);
         }
-        
+
         .btn-clay-subtle:active {
             transform: translateY(1px);
             box-shadow: 
@@ -251,6 +253,7 @@
                 inset -3px -3px 6px var(--shadow-light);
         }
 
+        /* ===== BADGES & PILLS ===== */
         .plate-display {
             background: var(--clay-strong);
             border-radius: 16px;
@@ -311,13 +314,18 @@
                 inset 1px 1px 2px rgba(255, 255, 255, 0.15);
         }
 
+        /* ===== TABLE & SCROLLBAR ===== */
         .table-row-clay {
             transition: all 0.2s ease;
             border-bottom: 1px solid var(--shadow-dark);
         }
-        
-        .table-row-clay:hover { 
-            background: rgba(113, 113, 122, 0.08);
+
+        .table-row-clay:hover {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        .dark .table-row-clay:hover {
+            background: rgba(255, 255, 255, 0.03);
         }
 
         * {
@@ -325,36 +333,70 @@
             scrollbar-color: var(--text-muted) var(--clay-base);
         }
 
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { 
-            background: var(--clay-base); 
-            border-radius: 4px; 
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
+
+        ::-webkit-scrollbar-track {
+            background: var(--clay-base);
+            border-radius: 4px;
+        }
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, var(--text-muted), var(--text-secondary));
             border-radius: 4px;
             border: 2px solid var(--clay-base);
         }
 
-        .content-layer { position: relative; z-index: 1; }
+        /* ===== UTILITIES ===== */
+        .content-layer {
+            position: relative;
+            z-index: 1;
+        }
 
-        .accent-steel  { border-left: 4px solid var(--steel-main); }
-        .accent-navy   { border-left: 4px solid var(--navy-dark); }
-        .accent-slate  { border-left: 4px solid var(--text-faint); }
-        .accent-haze   { border-left: 4px solid var(--shadow-dark); }
+        .accent-steel { border-left: 4px solid var(--steel-main); }
+        .accent-navy { border-left: 4px solid var(--navy-dark); }
+        .accent-slate { border-left: 4px solid var(--text-faint); }
+        .accent-haze { border-left: 4px solid var(--shadow-dark); }
 
-        .text-primary   { color: var(--text-primary); }
+        .text-primary { color: var(--text-primary); }
         .text-secondary { color: var(--text-secondary); }
-        .text-muted     { color: var(--text-muted); }
-        .text-faint     { color: var(--text-faint); }
+        .text-muted { color: var(--text-muted); }
+        .text-faint { color: var(--text-faint); }
+
+        /* ===== GRAYSCALE THEME TOGGLE ANIMATION ===== */
+        .theme-toggle-icon {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            position: absolute;
+            color: var(--text-secondary);
+        }
+
+        .dark .theme-icon-sun {
+            opacity: 1;
+            transform: rotate(360deg) scale(1);
+        }
+
+        .dark .theme-icon-moon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+
+        .theme-icon-sun {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0);
+        }
+
+        .theme-icon-moon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
     </style>
 </head>
 
 <body class="font-sans antialiased">
-
     <div class="content-layer">
-
-        {{-- ===== TOP BAR ===== --}}
+        {{-- TOP BAR --}}
         <header class="sticky top-0 z-50 px-4 pt-4 pb-2">
             <div class="max-w-[1440px] mx-auto">
                 <div class="clay-strong px-6 py-3 flex items-center justify-between">
@@ -368,19 +410,19 @@
                         </div>
                     </div>
 
-                    <div class="clay-subtle rounded-xl px-3 py-1.5 flex items-center gap-2">
-                        <span class="text-secondary text-[10px]  tracking-wider font-medium">
-                            Kelompok 8 A1 TEK Pemrograman Web
-                        </span>
-                    </div>
+                    {{-- GRAYSCALE THEME TOGGLE --}}
+                    <button id="theme-toggle" class="clay-subtle w-10 h-10 rounded-xl flex items-center justify-center hover:text-primary transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                        <div class="relative w-5 h-5 flex items-center justify-center">
+                            <i class="fas fa-sun theme-toggle-icon theme-icon-sun"></i>
+                            <i class="fas fa-moon theme-toggle-icon theme-icon-moon"></i>
+                        </div>
+                    </button>
                 </div>
             </div>
         </header>
 
-        {{-- ===== MAIN ===== --}}
+        {{-- MAIN --}}
         <main class="max-w-[1440px] mx-auto px-4 py-4">
-
-            {{-- Flash Messages --}}
             @if(session('success'))
                 <div class="clay p-3 mb-4 flex items-center gap-3 accent-steel">
                     <i class="fas fa-circle-check text-secondary text-sm"></i>
@@ -400,13 +442,9 @@
                 </div>
             @endif
 
-            {{-- ===== DASHBOARD GRID ===== --}}
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
-
-                {{-- ========== LEFT: Search + Result (5 cols) ========== --}}
+                {{-- LEFT COLUMN --}}
                 <div class="lg:col-span-5 space-y-5">
-
-                    {{-- SEARCH --}}
                     <div class="clay-strong p-6">
                         <div class="flex items-center gap-2.5 mb-5">
                             <div class="w-8 h-8 rounded-xl clay-subtle flex items-center justify-center">
@@ -414,7 +452,6 @@
                             </div>
                             <h2 class="text-primary font-bold text-sm tracking-wide uppercase">Identifikasi Plat</h2>
                         </div>
-
                         <form action="{{ route('vehicle-plate.check') }}" method="POST" class="space-y-4">
                             @csrf
                             <div class="clay-inset p-1">
@@ -422,42 +459,29 @@
                                     <div class="absolute left-4 top-1/2 -translate-y-1/2 text-faint">
                                         <i class="fas fa-keyboard text-sm"></i>
                                     </div>
-                                    <input
-                                        type="text"
-                                        name="plate_number"
-                                        value="{{ old('plate_number', $input) }}"
-                                        placeholder="B atau B 1174 KKB"
-                                        class="clay-input w-full pl-11 pr-4 py-3.5 text-lg uppercase tracking-[0.15em] bg-transparent"
-                                        required
-                                        autofocus
-                                        autocomplete="off"
-                                    >
+                                    <input type="text" name="plate_number" value="{{ old('plate_number', $input) }}" placeholder="B atau B 1174 KKB" class="clay-input w-full pl-11 pr-4 py-3.5 text-lg uppercase tracking-[0.15em] bg-transparent" required autofocus autocomplete="off">
                                 </div>
                             </div>
                             <button type="submit" class="btn-clay w-full py-3.5 text-sm tracking-wider uppercase flex items-center justify-center gap-2">
-                                <i class="fas fa-search"></i>
-                                Cek Plat
+                                <i class="fas fa-search"></i> Cek Plat
                             </button>
                         </form>
-
                         @error('plate_number')
                             <div class="mt-3 flex items-center gap-2">
                                 <i class="fas fa-circle-exclamation text-muted text-xs"></i>
                                 <p class="text-secondary text-xs">{{ $message }}</p>
                             </div>
                         @enderror
-
                         <div class="mt-5 pt-4 border-t border-gray-500/20">
                             <div class="flex items-center gap-2 flex-wrap">
                                 <span class="text-faint text-[10px] uppercase tracking-widest font-medium">Contoh:</span>
                                 @foreach(['B', 'DK', 'B 1174 KKB', 'AB 1234 CD'] as $example)
-                                    <span class=" text-secondary text-[11px] clay-subtle px-2.5 py-1 rounded-lg">{{ $example }}</span>
+                                    <span class="text-secondary text-[11px] clay-subtle px-2.5 py-1 rounded-lg">{{ $example }}</span>
                                 @endforeach
                             </div>
                         </div>
                     </div>
 
-                    {{-- SEARCH ERROR --}}
                     @if($error)
                         <div class="clay p-4 flex items-center gap-3 accent-slate">
                             <div class="w-9 h-9 rounded-xl clay-subtle flex items-center justify-center">
@@ -467,42 +491,25 @@
                         </div>
                     @endif
 
-                    {{-- RESULT SECTION (FIXED LAYOUT) --}}
                     @if($result)
                         <div class="clay-strong p-6 space-y-4">
-
-                            {{-- Plate + Code Row --}}
                             <div class="flex items-stretch gap-4">
-                                
-                                {{-- LEFT: Input Container (VERTICAL STACK) --}}
                                 <div class="clay-inset p-4 flex-1 flex flex-col gap-4">
-                                    {{-- Label on Top --}}
                                     <span class="clay-pill self-start shrink-0">
                                         <i class="fas fa-arrow-right-to-bracket"></i> Input
                                     </span>
-                                    
-                                    {{-- Value Below --}}
                                     <div class="plate-display px-5 py-3 w-fit">
-                                        <span class=" text-primary text-xl font-extrabold tracking-[0.12em]">
-                                            {{ $result['input'] }}
-                                        </span>
+                                        <span class="text-primary text-xl font-extrabold tracking-[0.12em]">{{ $result['input'] }}</span>
                                     </div>
                                 </div>
-
-                                {{-- RIGHT: Code Container (VERTICAL STACK) --}}
                                 <div class="flex flex-col items-center justify-center gap-4">
                                     <span class="clay-pill">Kode</span>
-                                    
                                     <div class="badge-clay px-6 py-3">
-                                        <span class=" text-2xl font-extrabold tracking-wider">
-                                            {{ $result['plate_code'] }}
-                                        </span>
+                                        <span class="text-2xl font-extrabold tracking-wider">{{ $result['plate_code'] }}</span>
                                     </div>
                                 </div>
-                                
                             </div>
 
-                            {{-- Detailed City / Info Message --}}
                             @if($result['detailed_city'])
                                 <div class="clay-inset p-4 accent-navy">
                                     <span class="clay-pill mb-3">
@@ -517,29 +524,21 @@
                                 </div>
                             @else
                                 <div class="clay-inset p-3 flex items-center gap-2.5 accent-steel">
-                                    <p class="text-secondary text-xs">
-                                        Masukkan plat lengkap (contoh: <span class=" text-primary font-semibold">{{ $result['plate_code'] }} 1234 ABC</span>) untuk detail kota.
-                                    </p>
+                                    <p class="text-secondary text-xs">Masukkan plat lengkap (contoh: <span class="text-primary font-semibold">{{ $result['plate_code'] }} 1234 ABC</span>) untuk detail kota.</p>
                                 </div>
                             @endif
 
-                            {{-- Region & Province Grid --}}
                             <div class="grid grid-cols-2 gap-3">
                                 <div class="clay-inset p-4 accent-steel">
-                                    <span class="clay-pill mb-3">
-                                        <i class="fas fa-map"></i> Wilayah
-                                    </span>
+                                    <span class="clay-pill mb-3"><i class="fas fa-map"></i> Wilayah</span>
                                     <p class="text-primary text-base font-bold">{{ $result['region'] }}</p>
                                 </div>
                                 <div class="clay-inset p-4 accent-steel">
-                                    <span class="clay-pill mb-3">
-                                        <i class="fas fa-earth-asia"></i> Provinsi
-                                    </span>
+                                    <span class="clay-pill mb-3"><i class="fas fa-earth-asia"></i> Provinsi</span>
                                     <p class="text-primary text-base font-bold">{{ $result['province'] }}</p>
                                 </div>
                             </div>
 
-                            {{-- Cities List --}}
                             @if($result['cities'] && !$result['detailed_city'])
                                 <div class="clay-inset p-4 accent-slate">
                                     <span class="clay-pill clay-pill-dark mb-3">
@@ -548,17 +547,14 @@
                                     <p class="text-secondary text-sm leading-relaxed">{{ $result['cities'] }}</p>
                                 </div>
                             @endif
-
                         </div>
                     @endif
                 </div>
 
-                {{-- ========== RIGHT: Reference Table (7 cols) ========== --}}
+                {{-- RIGHT COLUMN --}}
                 <div class="lg:col-span-7">
                     @if(count($allCodes) > 0)
                         <div class="clay-strong p-6 flex flex-col h-full max-h-[810px]">
-
-                            {{-- Header --}}
                             <div class="flex flex-wrap items-center justify-between gap-3 mb-4 shrink-0">
                                 <div class="flex items-center gap-2.5">
                                     <div class="w-8 h-8 rounded-xl clay-subtle flex items-center justify-center">
@@ -567,24 +563,19 @@
                                     <div>
                                         <h3 class="text-primary font-bold text-sm tracking-wide uppercase">Daftar Kode Plat</h3>
                                         <p class="text-muted text-[10px] tracking-wider font-medium">
-                                            {{ count($allCodes) }} KODE TERDAFTAR
-                                            <span class="text-faint mx-1">|</span>
+                                            {{ count($allCodes) }} KODE TERDAFTAR 
+                                            <span class="text-faint mx-1">|</span> 
                                             KLIK BARIS UNTUK MENCARI
                                         </p>
                                     </div>
                                 </div>
-
-                                <form action="{{ route('vehicle-plate.refresh') }}" method="POST"
-                                    onsubmit="return confirm('Perbarui data dari API? (2 kredit)');">
+                                <form action="{{ route('vehicle-plate.refresh') }}" method="POST" onsubmit="return confirm('Perbarui data dari API? (2 kredit)');">
                                     @csrf
                                     <button type="submit" class="btn-clay-subtle px-4 py-2 text-[10px] font-semibold tracking-wider uppercase flex items-center gap-1.5">
-                                        <i class="fas fa-arrows-rotate text-xs"></i>
-                                        Refresh
+                                        <i class="fas fa-arrows-rotate text-xs"></i> Refresh
                                     </button>
                                 </form>
                             </div>
-
-                            {{-- Scrollable Table Container --}}
                             <div class="clay-inset overflow-y-auto overflow-x-auto flex-1 w-full">
                                 <table class="w-full text-left border-collapse min-w-[600px]">
                                     <thead class="sticky top-0 z-10">
@@ -592,20 +583,17 @@
                                             <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold w-[70px] whitespace-nowrap">Kode</th>
                                             <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-map-pin mr-0.5"></i> Wilayah</th>
                                             <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-earth-asia mr-0.5"></i> Provinsi</th>
-                                            {{-- Removed 'hidden xl:table-cell' so it always shows --}}
                                             <th class="py-3 px-4 text-muted text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap"><i class="fas fa-city mr-0.5"></i> Kota / Kab.</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($allCodes as $plate)
-                                            <tr class="table-row-clay cursor-pointer"
-                                                onclick="document.querySelector('input[name=plate_number]').value='{{ $plate['plate_code'] }}'; document.querySelector('form[action=\'{{ route('vehicle-plate.check') }}\']').submit();">
+                                            <tr class="table-row-clay cursor-pointer" onclick="document.querySelector('input[name=plate_number]').value='{{ $plate['plate_code'] }}'; document.querySelector('form[action=\'{{ route('vehicle-plate.check') }}\']').submit();">
                                                 <td class="py-2.5 px-4">
-                                                    <span class=" font-bold text-[11px] badge-clay-sm inline-block px-3 py-1 rounded-lg">{{ $plate['plate_code'] }}</span>
+                                                    <span class="font-bold text-[11px] badge-clay-sm inline-block px-3 py-1 rounded-lg">{{ $plate['plate_code'] }}</span>
                                                 </td>
                                                 <td class="py-2.5 px-4 text-primary font-semibold text-sm whitespace-nowrap">{{ $plate['region'] }}</td>
                                                 <td class="py-2.5 px-4 text-secondary text-sm whitespace-nowrap">{{ $plate['province'] }}</td>
-                                                {{-- Removed 'hidden xl:table-cell' --}}
                                                 <td class="py-2.5 px-4 text-muted text-xs whitespace-nowrap">{{ \Illuminate\Support\Str::limit($plate['cities'] ?? '', 45) }}</td>
                                             </tr>
                                         @endforeach
@@ -617,7 +605,6 @@
                 </div>
             </div>
 
-            {{-- ===== FOOTER ===== --}}
             <footer class="mt-5 clay-subtle px-5 py-3">
                 <div class="flex flex-wrap items-center justify-between gap-3 text-[10px]">
                     <div class="flex items-center gap-3 text-muted font-medium">
@@ -630,5 +617,46 @@
             </footer>
         </main>
     </div>
+
+    {{-- SMART THEME TOGGLE SCRIPT --}}
+    <script>
+        const htmlElement = document.documentElement;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const THEME_KEY = 'idplat-theme';
+
+        // Theme determination
+        function getInitialTheme() {
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored === 'dark' || stored === 'light') return stored;
+            // Fallback browser
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        // Apply theme
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+        }
+
+        applyTheme(getInitialTheme());
+
+        // Manual toggle
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = htmlElement.classList.contains('dark');
+            const newTheme = isDark ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem(THEME_KEY, newTheme);
+        });
+
+        // Listen for system/browser theme changes ONLY if user hasn't manually overridden
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem(THEME_KEY)) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
 </body>
 </html>
